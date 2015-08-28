@@ -1,0 +1,68 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font: .85em/1.3 Arial, Helvetica, sans-serif;
+  width: 648px;
+  margin: 0 auto;
+  color: #fff;
+}
+
+header {
+  font-family: Times, 'Times New Roman', serif;
+  background: #c93042;
+  text-align: center;
+}
+header  h1 {
+  font-size: 2.65em;
+  margin: 0;
+  padding: 0.4em 0 0.2em 0;
+  line-height: 1.1;
+}
+
+header h1 span {
+  display: block;
+  font-size: 1.65em;
+}
+
+main {
+  background: url('../images/coffee-img.jpg') no-repeat;
+  height: 265px;
+  position: relative;
+}
+
+.coupon {
+  width: 250px;
+  position: relative;
+  padding: 1.5em 1.2em 0 1.2em;
+  top: 1.6rem;
+  left: 23rem;
+}
+.coupon h2 {
+  margin: 0;
+  line-height: 1.2;
+}
+.coupon p {
+  margin-top: 0.5em;
+}
+.coupon a {
+  display: block;
+  width: 160px;
+  height: 2.8em;
+  margin: 0 auto;
+  text-decoration: none;
+  font-family: Times, 'Times New Roman', serif;
+  color: #582a12;
+  font-size: 1.4em;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1.2;
+  padding: 0.2em 0.5em 0 0;
+}
+.coupon span {
+  display: block;
+}
