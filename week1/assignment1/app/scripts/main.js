@@ -1,1 +1,1 @@
-console.log('\'Allo \'Allo!');
+setTimeout("alert('Print now!')", 5000);
