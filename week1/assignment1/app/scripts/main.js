@@ -1,1 +1,6 @@
-setTimeout("alert('Print now!')", 5000);
+
+
+setTimeout(function () {
+  'use strict';
+  alert('Print now!');
+}, 5000);
