@@ -23,10 +23,18 @@
 
     <!-- build:js scripts/vendor/modernizr.js -->
     <!-- endbuild -->
+    <script src="scripts/modernizr.js"></script>
   </head>
   <body>
-    <!--[if lt IE 10]>
-      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <!--[if lt IE 9]>
+       <script>
+          document.createElement('header');
+          document.createElement('nav');
+          document.createElement('section');
+          document.createElement('article');
+          document.createElement('aside');
+          document.createElement('footer');
+       </script>
     <![endif]-->
 
     <header>

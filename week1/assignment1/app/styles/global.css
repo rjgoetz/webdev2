@@ -37,10 +37,10 @@ main {
 
 .coupon {
   width: 250px;
-  position: relative;
+  position: absolute;
   padding: 1.5em 1.2em 0 1.2em;
-  top: 1.6rem;
-  left: 23rem;
+  top: 1.5em;
+  left: 27em;
 }
 .coupon h2 {
   margin: 0;
@@ -52,7 +52,7 @@ main {
 .coupon a {
   display: block;
   width: 160px;
-  height: 2.8em;
+  height: 3em;
   margin: 0 auto;
   text-decoration: none;
   font-family: Times, 'Times New Roman', serif;
@@ -61,7 +61,7 @@ main {
   font-weight: bold;
   text-align: center;
   line-height: 1.2;
-  padding: 0.2em 0.5em 0 0;
+  padding: 0.5em 0.5em 0 0;
 }
 .coupon span {
   display: block;
