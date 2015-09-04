@@ -19,7 +19,7 @@
 body {
   font: 1em/1.4 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Geneva, Verdana, sans-serif;
   color: #333;
-  background: #e6e6e6;
+  /*background: #e6e6e6;*/
 }
 
 header {
@@ -51,16 +51,20 @@ article {
   height: 250px;
   position: relative;
   padding-top: 2em;
-  border: 5px solid #e6e6e6;
+  border: 5px solid #fff;
   background: #fff;
 }
 
 article img {
   display: block;
+  max-width: 90%;
   margin: auto;
 }
 
 article h2 {
+  font-size: 1.25em;
+  background: #DEE7EF;
+  color: #385F85;
   position: absolute;
   width: 100%;
   text-align: center;
