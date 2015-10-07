@@ -21,7 +21,7 @@ var churchillSpeech = {
     donatePrompt,
     donateElement,
     donateText,
-    articleTitles,
+    articleTitles = document.getElementsByTagName('article'),
     consoleDisplay = document.getElementById('ConsoleDisplay'),
     sideNav = document.getElementById('SideNav');
 
@@ -43,7 +43,6 @@ document.getElementById('BtnDonate').addEventListener('click', function(){
     donateElement.appendChild(donateText);
 
     //Remove generous-donation className
-    articleTitles = document.getElementsByTagName('article');
     for (var i = 0; i < articleTitles.length; i++) {
     articleTitles[i].className = '';
     };
@@ -54,7 +53,6 @@ document.getElementById('BtnDonate').addEventListener('click', function(){
     donateElement.setAttribute('style', 'color: red');
 
     //Set generous-donation ClassName
-    articleTitles = document.getElementsByTagName('article');
     for (var i = 0; i < articleTitles.length; i++) {
     articleTitles[i].className = 'generous-donation';
     };
