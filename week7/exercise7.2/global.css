@@ -1,0 +1,27 @@
+
+.default-box {
+	width: 200px;
+	height: 200px;
+ 	margin: 6em auto;
+ 	cursor: pointer;
+}
+
+.orange {	
+	background-color: orange;
+	-webkit-transition: width 1s ease-in;
+	transition: width 1s ease-in;	
+}
+
+.blue {
+	background-color: blue;
+	width: 400px;
+	-webkit-transition: width 1s ease-out;
+	transition: width 1s ease-out;
+}
+
+.yellow {
+	background-color: yellow;
+	width: 600px;
+	-webkit-transition: width 1s linear;
+	transition: width 1s linear;
+}
