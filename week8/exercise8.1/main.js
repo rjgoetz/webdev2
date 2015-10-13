@@ -3,7 +3,7 @@
 // declare global variables
 var h1 = document.getElementsByTagName("h1"),
     h2 = document.getElementsByTagName("h2"),
-    active = false;
+    buttons = [false, false];
 
 // returns number of elements of same type on page
 function loopElement(element) {
@@ -33,27 +33,27 @@ function colorOff(element) {
 };
 
 // button event turns on / off colorRed
-document.getElementById("btn1").onclick = function () {
-  if (active) {
+document.getElementById("btn0").onclick = function () {
+  if (buttons[0]) {
     colorOff(h1);
     this.setAttribute("style", "background: white; color: black");
-    active = false;
+    buttons[0] = false;
   } else {
     colorRed(h1);
     this.setAttribute("style", "background: red; color: white");
-    active = true;
+    buttons[0] = true;
   };
 };
 
-// button event turns on / off colorRed
-document.getElementById("btn2").onclick = function () {
-  if (active) {
+// button event turns on / off colorBlue
+document.getElementById("btn1").onclick = function () {
+  if (buttons[1]) {
     colorOff(h2);
     this.setAttribute("style", "background: white; color: black");
-    active = false;
+    buttons[1] = false;
   } else {
     colorBlue(h2);
     this.setAttribute("style", "background: blue; color: white");
-    active = true;
+    buttons[1] = true;
   };
 };
