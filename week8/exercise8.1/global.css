@@ -40,6 +40,10 @@ header h1 {
   color: red;
 }
 
+.blue {
+  color: blue;
+}
+
 main {
   height: 600px;
 }
