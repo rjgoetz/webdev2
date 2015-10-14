@@ -1,4 +1,4 @@
-// add-article-text.js
+// articletext.js
 
 /*
   Script that places text inside article on web page.
