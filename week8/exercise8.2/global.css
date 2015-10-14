@@ -1,0 +1,76 @@
+/* global.css */
+
+.col1-3 {
+  width: 33.3333%;
+  float: left;
+}
+
+.col2-3 {
+  width: 66.6666%;
+  float: left;
+}
+
+html {
+  background: #efefef;
+}
+
+body {
+  font: 16px/1.5 sans-serif;
+  background: #fff;
+  width: 960px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+header {
+  height: 150px;
+  position: relative;
+  margin-bottom: 50px;
+  border-bottom: 1px solid #000;
+}
+
+header h1 {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+}
+
+.red {
+  color: red;
+}
+
+.blue {
+  color: blue;
+}
+
+main {
+  height: 600px;
+}
+
+article {
+  height: 150px;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  border: 1px solid #000;
+  width: 150px;
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+footer {
+  clear: both;
+}
+
+footer p {
+  text-align: center;
+  padding: 10px 0;
+  border-top: 1px solid #000;
+}
