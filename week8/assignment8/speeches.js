@@ -4,28 +4,19 @@ var
       'author': 'Churchill',
       'year': 1940,
       'yearIsBCE': false,
-      'authorAge': '66',
-      'displaySpeechText' : function() {
-        displaySpeechText(this);
-      }
+      'authorAge': '66'
     },
     ghandiSpeech = {
       'author': 'Ghandi',
       'year': 1942,
       'yearIsBCE': false,
-      'authorAge': '73',
-      'displaySpeechText' : function() {
-        displaySpeechText(this);
-      }
+      'authorAge': '73'
     },
     demosthenesSpeech = {
       'author': 'Demosthenes',
       'year': 342,
       'yearIsBCE': true,
-      'authorAge': '42',
-      'displaySpeechText' : function() {
-        displaySpeechText(this);
-      }
+      'authorAge': '42'
     },
     speechesArray = [churchillSpeech, ghandiSpeech, demosthenesSpeech],
     oldestSpeech = speechesArray[0].year,
@@ -56,6 +47,16 @@ displayBCEString = function(authorSpeech) {
   }
 };
 
+// find and store oldest and newest speeches on page
+for(var i = 0; i < speechesArray.length; i++){
+  if(speechesArray[i].year < oldestSpeech){
+    oldestSpeech = speechesArray[i].year;
+  }
+  if(speechesArray[i].year > newestSpeech){
+    newestSpeech = speechesArray[i].year;
+  }
+};
+
 // displays whether speech is oldest or newest on web page
 getOldestOrYoungestString = function(authorSpeech) {
   if(authorSpeech.year === oldestSpeech){
@@ -63,23 +64,6 @@ getOldestOrYoungestString = function(authorSpeech) {
   }
   if(authorSpeech.year === newestSpeech){
     consoleDisplay.innerHTML += '<p>This is the most recent speech on the page.</p>';
-  }
-};
-
-// displays speech text in sideNav
-displaySpeechText = function(authorSpeech) {
-  getAuthorAndYearString(authorSpeech);
-  displayBCEString(authorSpeech);
-  getOldestOrYoungestString(authorSpeech);
-};
-
-// find and store oldest and newest speeches on web page
-for(var i = 0; i < speechesArray.length; i++){
-  if(speechesArray[i].year < oldestSpeech){
-    oldestSpeech = speechesArray[i].year;
-  }
-  if(speechesArray[i].year > newestSpeech){
-    newestSpeech = speechesArray[i].year;
   }
 };
 
@@ -122,15 +106,21 @@ document.getElementById('BtnDonate').addEventListener('click', function(){
 
 document.getElementById('BtnChurchill').addEventListener('click', function(){
   //Code in here executes when the user clicks the "Churchill" button.
-  churchillSpeech.displaySpeechText();
+  getAuthorAndYearString(churchillSpeech);
+  displayBCEString(churchillSpeech);
+  getOldestOrYoungestString(churchillSpeech);
 });
 
 document.getElementById('BtnGhandi').addEventListener('click', function(){
   //Code in here executes when the user clicks the "Ghandi" button.
-  ghandiSpeech.displaySpeechText();
+  getAuthorAndYearString(ghandiSpeech);
+  displayBCEString(ghandiSpeech);
+  getOldestOrYoungestString(ghandiSpeech);
 });
 
 document.getElementById('BtnDemosthenes').addEventListener('click', function(){
   //Code in here executes when the user clicks the "Demosthenes" button.
-  demosthenesSpeech.displaySpeechText();
+  getAuthorAndYearString(demosthenesSpeech);
+  displayBCEString(demosthenesSpeech);
+  getOldestOrYoungestString(demosthenesSpeech);
 });
