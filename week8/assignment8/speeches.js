@@ -19,8 +19,6 @@ var
       'authorAge': '42'
     },
     speechesArray = [churchillSpeech, ghandiSpeech, demosthenesSpeech],
-    oldestSpeech = speechesArray[0].year,
-    newestSpeech = speechesArray[0].year,
     donatePrompt,
     donateElement,
     donateText,
@@ -29,7 +27,7 @@ var
     sideNav = document.getElementById('SideNav')
 ;
 
-// displays speech author and year written
+// displays speech author and year written in sideNav
 getAuthorAndYearString = function(authorSpeech) {
   if (authorSpeech.yearIsBCE === true) {
     consoleDisplay.innerHTML = '<p>This speech was written by ' + authorSpeech.author + ' in ' + authorSpeech.year + ' BCE.</p>';
@@ -38,7 +36,7 @@ getAuthorAndYearString = function(authorSpeech) {
   }
 };
 
-// displays whether speech was written in BCE or not
+// displays whether speech was written in BCE or not in sideNav
 displayBCEString = function(authorSpeech) {
   if(authorSpeech.yearIsBCE === true){
     consoleDisplay.innerHTML += '<p>This speech took place before the common era.</p>';
@@ -47,18 +45,24 @@ displayBCEString = function(authorSpeech) {
   }
 };
 
-// find and store oldest and newest speeches on page
-for(var i = 0; i < speechesArray.length; i++){
-  if(speechesArray[i].year < oldestSpeech){
-    oldestSpeech = speechesArray[i].year;
-  }
-  if(speechesArray[i].year > newestSpeech){
-    newestSpeech = speechesArray[i].year;
-  }
-};
-
-// displays whether speech is oldest or newest on web page
+// displays whether speech is oldest or newest in sideNav
 getOldestOrYoungestString = function(authorSpeech) {
+  // find and store oldest and newest speeches on page
+  var
+    oldestSpeech = speechesArray[0].year,
+    newestSpeech = speechesArray[0].year
+  ;
+
+  for(var i = 0; i < speechesArray.length; i++){
+    if(speechesArray[i].year < oldestSpeech){
+      oldestSpeech = speechesArray[i].year;
+    }
+    if(speechesArray[i].year > newestSpeech){
+      newestSpeech = speechesArray[i].year;
+    }
+  };
+
+  // display result in sideNav
   if(authorSpeech.year === oldestSpeech){
     consoleDisplay.innerHTML += '<p>This is the oldest speech on the page.</p>';
   }
