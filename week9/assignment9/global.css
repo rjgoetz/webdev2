@@ -1,0 +1,77 @@
+/* global.css */
+
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.col1-3 {
+  width: 33.3333%;
+  float: left;
+  padding-right: 25px;
+}
+
+body {
+  width: 960px;
+  margin: 0 auto;
+  font: 13px/1 sans-serif;
+}
+
+header h1 {
+  height: 150px;
+  padding: 50px;
+  color: blue;
+  text-align: center;
+}
+
+main {
+  padding-top: 100px;
+}
+
+.box1 {
+  background-color: #999;
+  height: 150px;
+  width: 50%;
+  margin: auto;
+}
+
+.btn1 {
+  width: 100px;
+  height: 30px;
+  margin: 30px auto;
+  border-radius: 3px;
+  background-color: #999;
+  color: #fff;
+  text-align: center;  
+  cursor: pointer;
+}
+
+.btn1 p {
+  padding-top: 8px;
+}
+
+.box2 {
+  height: 150px;
+  font-size: 2em;
+  color: blue;
+}
+
+form input {
+  color: #999;
+}
+
+form label {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.blue {
+  background: blue;
+}
+
+.green {
+  background: green;
+}
