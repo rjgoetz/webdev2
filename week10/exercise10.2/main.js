@@ -1,7 +1,14 @@
 // main.js
 
 function createSpecialsLinks() {
-	$("#specials h2").clone().insertAfter("#specials h1").contents().unwrap().wrapAll("<ul></ul>").wrap("<li></li>").wrap("<a></a>");
+	$("#specials h2")
+		.clone()
+		.insertAfter("#specials h1")
+		.contents()
+		.unwrap()
+		.wrapAll("<ul></ul>")
+		.wrap("<li></li>")
+		.wrap("<a></a>");
 }
 
 function addAnchorTags() {
