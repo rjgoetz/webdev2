@@ -34,9 +34,9 @@ $("document").ready(function() {
 	$("a").click(function() {
 		$(this).addClass("link-background");
 	})
-	// remove 2nd h2 element on page
-	$("h2.title:eq(1)").click(function() {
-		$(this).remove();
+	// toggle 2nd paragraph from page
+	$(".post:eq(1) .title").click(function() {
+		$(".post:eq(1)").find(".entry").toggle();
 	})
 	dropdownNav();
 });
