@@ -151,3 +151,22 @@ body {
 	#footer a {
 		color: #FFFFFF;
 	}
+
+	.fun-box {
+		width: 75px;
+		height: 75px;
+		background: #FFCC66;
+		position: relative;
+		top: 20px;
+		cursor: pointer;
+	}
+
+	.display-coord {
+		position: absolute;
+		bottom: 15px;
+		width: 500px;
+		height: 14px;
+		border: 1px solid #699C4D;
+		font-weight: bold;
+		text-align: center;
+	}
