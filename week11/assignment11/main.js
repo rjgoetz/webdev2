@@ -1,6 +1,5 @@
 // main.js
 
-
 // create icon object and prepend to anchor text
 function addIconImage() {
 	var iconImage = $("<img src='icon.png'>").css("margin-right", "10px");
@@ -23,7 +22,7 @@ function changeHeaderBackground() {
 
 // change text color of first LI in #sidebar_content_1
 function changeListItemColor() {
-	$("#sidebar_content_1 li:first-of-type a").css("color", "red");
+	$("#sidebar_content_1 li:first-of-type a").css("color", "#FF0066");
 };
 
 // move position of even "numbered" LI to the right by 5px in #sidebar_content_2
@@ -37,7 +36,7 @@ function replaceContentFunStuff() {
 	var displayCoord = $("<div class='display-coord'></div>");
 
 	// click first H2 to add "Random Box Position" elements and initial styling
-	$("#content h2:first-of-type").click(function(){
+	$("#content .post:first-of-type h2").click(function(){
 		$("#content").html("<h1>Random Box Position</h1><h2>Click the box!</h2>").append(funBox).append(displayCoord);
 		$("#content").css({
 			"position": "relative",
