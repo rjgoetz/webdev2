@@ -1,0 +1,9 @@
+/* style.css */
+
+body {
+	font: 16px/1 Georgia, Times, 'Times New Roman', serif;
+}
+
+q:before, q:after {
+	content: "";
+}
