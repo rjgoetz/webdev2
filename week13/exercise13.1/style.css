@@ -1,0 +1,96 @@
+/* style.css */
+
+body {
+	font: 16px/1.5 sans-serif;
+}
+
+.clearfix {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+a {
+	text-decoration: none;
+	color: #333;
+}
+
+li {
+	list-style-type: none;
+}
+
+ul {
+	padding: 0;
+}
+
+header {
+	height: 100px;
+}
+
+header h1 {
+	float: left;
+}
+
+article {
+	height: 300px;
+}
+
+.toggle-nav {
+	float: left;
+	margin: 1.25em 0 0 10em;
+}
+
+.toggle-nav > ul > li {
+	list-style-type: none;
+	float: left;
+	text-transform: uppercase;
+	width: 8em;
+}
+
+.toggle-nav > ul > li > a {
+	color: blue;
+	font-weight: bold;		
+	padding-right: 0.5em;
+}
+
+.toggle-nav ul li li {
+	text-transform: initial;
+	font-size: 0.9em;
+}
+
+.plus:before {
+	content: "+";
+	padding-right: 0.5em;
+}
+
+.minus:before {
+	content: "-";
+	padding-right: 0.5em;
+}
+
+
+/* This nav class is to emulate a browser not running J/S */
+
+.accessible-nav {
+	float: left;
+	margin: 1.25em 0 0 10em;
+}
+
+.accessible-nav > ul > li {
+	list-style-type: none;
+	float: left;
+	text-transform: uppercase;
+	width: 8em;
+}
+
+.accessible-nav > ul > li > a {
+	color: blue;
+	font-weight: bold;
+}
+
+.accessible-nav ul li li {
+	text-transform: initial;
+	font-size: 0.9em;
+}
+
+
