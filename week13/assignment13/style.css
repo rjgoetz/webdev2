@@ -8,6 +8,7 @@ html {
 }
 
 .row {
+  margin-bottom: 1em;
   content: "";
   display: table;
   clear: both;
@@ -58,6 +59,10 @@ header span {
 
 /* main */
 
+main {
+  padding-bottom: 10em;
+}
+
 main h2 {
   padding-top: 1em;
   text-align: center;
@@ -71,7 +76,7 @@ article {
   float: left;
   width: 33.3333%;
   padding-right: 80px;
-  height: 350px;
+  height: 335px;
   position: relative;
 }
 
@@ -89,6 +94,11 @@ article h3 {
   margin: 1em 0 0.5em 0;
   padding: 0 0.5em;
   width: 220px;
+  margin-bottom: 0;
+}
+
+article:hover h3 {
+  background: #ff9900;
 }
 
 article img {
@@ -96,16 +106,21 @@ article img {
 }
 
 article p {
+  width: 220px;
   text-align: center;
-  padding-right: 80px;
-}
-
-.flash-card p {
+  margin: 0;
   visibility: hidden;
   position: absolute;
   bottom: 0;
+  line-height: 1.4;
 }
 
-.flash-card:hover p {
+article:hover p {
   visibility: visible;
+}
+
+.capital {
+  visibility: visible;
+  color: #fff;
+  background: rgba(0,0,0,0.75);
 }
