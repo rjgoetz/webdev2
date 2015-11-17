@@ -1,0 +1,111 @@
+/* style.css */
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.row {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+body {
+  font: 100 18px/1.6 "Gill Sans", sans-serif;
+  background: url("usa-bg.jpg") no-repeat top center;
+  width: 980px;
+  padding: 0 80px;
+  color: #0066ff;
+  margin: 0 auto;
+}
+
+/* header */
+
+header {
+  text-align: center;
+  position: relative;
+}
+
+header p {
+  color: #333;
+}
+
+header img {
+  position: absolute;
+  left: 0;
+  top: 3.5em;
+}
+
+.hidden {  
+  opacity: 0;
+}
+
+header h1 {
+  font-weight: 600;
+  font-size: 4em;
+  margin: 0;
+  line-height: 1.2;
+}
+
+header span {
+  display: block;
+  font-size: 0.4em;
+  margin: 0;
+}
+
+/* main */
+
+main h2 {
+  padding-top: 1em;
+  text-align: center;
+  font-weight: 400;
+  color: #ff9900;
+}
+
+/* flash cards */
+
+article {
+  float: left;
+  width: 33.3333%;
+  padding-right: 80px;
+  height: 350px;
+  position: relative;
+}
+
+article:last-of-type {
+  padding-right: 0;
+}
+
+article h3 {
+  text-align: center;
+  font-weight: 100;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: #0066ff;
+  color: #fff;
+  margin: 1em 0 0.5em 0;
+  padding: 0 0.5em;
+  width: 220px;
+}
+
+article img {
+  cursor: pointer;
+}
+
+article p {
+  text-align: center;
+  padding-right: 80px;
+}
+
+.flash-card p {
+  visibility: hidden;
+  position: absolute;
+  bottom: 0;
+}
+
+.flash-card:hover p {
+  visibility: visible;
+}
