@@ -40,10 +40,6 @@ header img {
   top: 3.5em;
 }
 
-.hidden {  
-  opacity: 0;
-}
-
 header h1 {
   font-weight: 600;
   font-size: 4em;

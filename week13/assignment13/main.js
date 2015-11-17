@@ -12,7 +12,7 @@ function flashCardReveal() {
 
 		// store state capital text
 		var stateText = $("article h3:eq("+flashCardNumber+")").text();
-
+		
 		// logic to reveal state capital or not
 		if(i[flashCardNumber] === 0) {
 			// set state background image
@@ -25,7 +25,7 @@ function flashCardReveal() {
 			}, 600);
 
 			// add state capital paragraph
-			$("article:eq("+flashCardNumber+")").append("<p class='capital'>The capital of "+stateText+" is "+stateCapitals[flashCardNumber]+"!</p>");
+			$("article:eq("+flashCardNumber+")").append("<p class='capital'>The capital of "+stateText.charAt(0).toUpperCase()+stateText.substring(1, stateText.length)+" is "+stateCapitals[flashCardNumber]+"!</p>");
 
 			i[flashCardNumber] = 1;
 		} else {
@@ -53,10 +53,7 @@ $("document").ready(function() {
     $("article").find("p").remove();
 
     // flag fade in
-    $("header").find("img").prop("class", "hidden").animate({
-      opacity: 1
-    }, 5000);
+    $("#flag").hide().fadeIn(5000);
 
-    flashCardReveal();
-    
+    flashCardReveal();    
 });
