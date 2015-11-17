@@ -13,9 +13,8 @@ function flashCardReveal() {
 		// store state capital text
 		var stateText = $("article h3:eq("+flashCardNumber+")").text();
 
-		// logic to show or hide flashCard
-		if(i[flashCardNumber] === 0) {		
-
+		// logic to reveal state capital or not
+		if(i[flashCardNumber] === 0) {
 			// set state background image
 			$("article img:eq("+flashCardNumber+")")
 				.attr({
@@ -56,7 +55,7 @@ $("document").ready(function() {
     // flag fade in
     $("header").find("img").prop("class", "hidden").animate({
       opacity: 1
-    }, 3000);
+    }, 5000);
 
     flashCardReveal();
     
