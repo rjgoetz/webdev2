@@ -1,0 +1,17 @@
+/* style.css */
+
+html {
+	/*background: #4096ee;*/
+}
+
+.player {
+	height: 100px;
+	margin: 40px 0;
+	background: #efefef;
+}
+
+.player div:nth-of-type(2) {
+	height: 100%;
+	width: 100%;
+	background: #ccc;
+}
