@@ -1,25 +1,35 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>WAR!</title>
+		<title>MARIO WAR!</title>
 		<link href="style.css" type="text/css" rel="stylesheet">
 	</head>
 	<body>
+		<h1>The Game of Mario War!</h1>
 
-		<div class="player">
-			<div>A</div>
-			<div id="a"></div>
+		<div class="player bowser">
+			<h2>Bowser</h2>
+			<div id="cards-a">
+				<!-- cards dynamically populate here -->
+			</div>
+			<p id="card-status-a"># of Cards: <span></span></p>
+			<p id="win-status-a"></p>
 		</div>
-		<div class="player">
-			<div>B</div>
-			<div id="b"></div>
+
+		<div class="player mario">
+			<h2>Mario</h2>
+			<div id="cards-b">
+				<!-- cards dynamically populate here -->
+			</div>
+			<p id="card-status-b"># of Cards: <span></span></p>
+			<p id="win-status-b"></p>
 		</div>
 
-
-		<button id="deal">DEAL</button>
-		<button id="play">PLAY</button>
+		<div class="controls">
+				<button id="play">Play</button>
+		</div>
 
 		<script src="jquery-1.11.1.js"></script>
-		<script src="war2.js"></script>
+		<script src="war.js"></script>
 	</body>
 </html>
