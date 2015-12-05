@@ -44,12 +44,20 @@ html {
 	width: 16.6666%;
 }
 
+.col1-5 {
+	width: 20%;
+}
+
 .col1-3 {
 	width: 33.3333%;
 }
 
 .col1-2 {
 	width: 50%;
+}
+
+.col3-4 {
+	width: 75%;
 }
 
 /* FONTS */
@@ -174,10 +182,18 @@ main {
 }
 
 .mario-characters {
-	width: 859px;
 	height: 190px;
 	margin: 92px auto 50px auto;
 	position: relative;
+}
+
+.mario-characters div p {
+	text-align: center;
+	text-transform: uppercase;
+	color: #ffffff;
+	font-size: 12px;
+	line-height: 1;
+	padding-top: 10px;
 }
 
 .mario-characters img:hover {
@@ -186,13 +202,19 @@ main {
 	cursor: pointer;
 }
 
-.player {
+.player1-choice, .player2-choice {
 	width: 200px;
 	height: 280px;
+	background: #66cc66;
 	position: relative;
+	cursor: pointer;
 }
 
-.player p {
+.active {
+	background: #ffffff;
+}
+
+.player1-choice p, .player2-choice p {
 	font-size: 18px;
 	text-transform: uppercase;
 	color: #ffcc00;
