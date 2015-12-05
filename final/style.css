@@ -21,10 +21,27 @@ html {
   margin: -1px; padding: 0; border: 0;
 }
 
-.col1-6 {
-	min-width: 16.6666%;
+.clearfix:after {
+   content: ".";
+   visibility: hidden;
+   display: block;
+   height: 0;
+   clear: both;
+}
+
+/* GRID */
+.col {
 	float: left;
 	padding-right: 16px;
+	min-height: 1px;
+}
+
+.col1-12 {
+	width: 8.3333%;
+}
+
+.col1-6 {
+	width: 16.6666%;
 }
 
 /* FONTS */
@@ -105,14 +122,27 @@ main {
 
 /* TOP BANNER */
 
-.top-banner {
+.top-banner-char {
 	height: 89px;
 	background:
 		url('images/mario-war-top-logo.jpg') no-repeat 120px 8px,
-		url('images/mario-war-top.jpg') no-repeat top center;
+		url('images/mario-war-top-char.jpg') no-repeat top center;
 }
 
-.top-banner a {
+.top-banner-char a {
+	display: block;
+	width: 330px;
+	height: 78px;
+}
+
+.top-banner-reg {
+	height: 89px;
+	background:
+		url('images/mario-war-top-logo.jpg') no-repeat 120px 8px,
+		url('images/mario-war-top-reg.jpg') no-repeat top center;
+}
+
+.top-banner-reg a {
 	display: block;
 	width: 330px;
 	height: 78px;
@@ -138,32 +168,14 @@ main {
 .mario-characters {
 	width: 859px;
 	height: 190px;
-	margin: 92px auto;
+	margin: 92px auto 50px auto;
 	position: relative;
 }
 
 .mario-characters img:hover {
 	position: relative;
 	bottom: 7px;
-}
-
-.character section {
-	position: relative;
-}
-
-.character section > div:first-of-type {
-	position: relative;
-	left: 216px;
-}
-
-.character section > div:nth-of-type(2) {
-	position: relative;
-	left: 324px;
-}
-
-.character section > div:last-of-type {
-	position: relative;
-	left: 433px;
+	cursor: pointer;
 }
 
 .player {
@@ -199,4 +211,14 @@ main {
 
 .character-button a:hover {
 	background: #ffcc00;
+}
+
+/* REGULAR PLAY MODE */
+
+.regular-mode {
+	background: url('images/mario-regular-mode-bg.jpg') no-repeat top center;
+}
+
+.regular-mode-bg {
+	background: #336633;
 }
