@@ -21,6 +21,12 @@ html {
   margin: -1px; padding: 0; border: 0;
 }
 
+.col1-6 {
+	min-width: 16.6666%;
+	float: left;
+	padding-right: 16px;
+}
+
 /* FONTS */
 @font-face {
 	font-family: 'Luckiest-Guy';
@@ -51,7 +57,7 @@ main {
 }
 
 .home {
-	background:	url('mario-home-bg.jpg') no-repeat;
+	background:	url('images/mario-home-bg.jpg') no-repeat;
 	position: relative;
 	padding-left: 520px;
 }
@@ -59,19 +65,10 @@ main {
 .home header {
 	width: 530px;
 	height: 145px;
-	background: url('mario-war-home-logo.jpg') no-repeat;
+	background: url('images/mario-war-home-logo.jpg') no-repeat;
 	position: relative;
 	top: 66px;
 	left: 66px;
-}
-
-.home h1 {
-	font: 95px/1 'Luckiest-Guy', sans-serif;
-}
-
-.home h1 span {
-	display: block;
-	font-size: 48px;
 }
 
 .home h2 {
@@ -103,5 +100,103 @@ main {
 }
 
 .home-buttons a:hover {
+	background: #ffcc00;
+}
+
+/* TOP BANNER */
+
+.top-banner {
+	height: 89px;
+	background:
+		url('images/mario-war-top-logo.jpg') no-repeat 120px 8px,
+		url('images/mario-war-top.jpg') no-repeat top center;
+}
+
+.top-banner a {
+	display: block;
+	width: 330px;
+	height: 78px;
+}
+
+/* CHARACTER PAGE */
+
+.character {
+	background: url('images/mario-character-bg.jpg') no-repeat top center;
+}
+
+.character-bg {
+	background: #336633;
+}
+
+.character h2 {
+	font: 50px/1 'Luckiest-Guy' sans-serif;
+	color: #ffffff;
+	text-align: center;
+	padding-top: 37px;
+}
+
+.mario-characters {
+	width: 859px;
+	height: 190px;
+	margin: 92px auto;
+	position: relative;
+}
+
+.mario-characters img:hover {
+	position: relative;
+	bottom: 7px;
+}
+
+.character section {
+	position: relative;
+}
+
+.character section > div:first-of-type {
+	position: relative;
+	left: 216px;
+}
+
+.character section > div:nth-of-type(2) {
+	position: relative;
+	left: 324px;
+}
+
+.character section > div:last-of-type {
+	position: relative;
+	left: 433px;
+}
+
+.player {
+	width: 200px;
+	height: 280px;
+	position: relative;
+}
+
+.player p {
+	font-size: 18px;
+	text-transform: uppercase;
+	color: #ffcc00;
+	position: absolute;
+	bottom: 10px;
+	left: 27px;
+}
+
+.character-button {
+	margin-top: 110px;
+}
+
+.character-button a {
+	font: 16px/1 'Press Start 2P', sans-serif;
+	display: block;
+	height: 50px;
+	width: 200px;
+	background: #0099cc;
+	text-decoration: none;
+	color: #ffffff;
+	text-transform: uppercase;
+	padding: 17px 0 0 65px;
+}
+
+.character-button a:hover {
 	background: #ffcc00;
 }
