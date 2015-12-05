@@ -44,6 +44,14 @@ html {
 	width: 16.6666%;
 }
 
+.col1-3 {
+	width: 33.3333%;
+}
+
+.col1-2 {
+	width: 50%;
+}
+
 /* FONTS */
 @font-face {
 	font-family: 'Luckiest-Guy';
@@ -151,7 +159,7 @@ main {
 /* CHARACTER PAGE */
 
 .character {
-	background: url('images/mario-character-bg.jpg') no-repeat top center;
+	background: url('images/mario-character-bg.jpg') no-repeat;
 }
 
 .character-bg {
@@ -216,9 +224,72 @@ main {
 /* REGULAR PLAY MODE */
 
 .regular-mode {
-	background: url('images/mario-regular-mode-bg.jpg') no-repeat top center;
+	background: url('images/mario-regular-mode-bg.jpg') no-repeat center 5px;
 }
 
 .regular-mode-bg {
 	background: #336633;
+}
+
+.scorebar-reg {
+	background: #0099cc;
+	height: 50px;
+}
+
+.scorebar-reg .player1-title p, .scorebar-reg .player2-title p {
+	color: #ffffff;
+	font-size: 18px;
+	text-transform: uppercase;
+	text-align: center;
+	padding-top: 15px;
+}
+
+.scorebar-reg .player1-score, .scorebar-reg .player2-score {
+	color: #ffcc00;
+	font-size: 36px;
+	line-height: 1;
+	padding-top: 8px;
+}
+
+.scorebar-reg .player2-score {
+	text-align: right;
+}
+
+.regular-mode section {
+	padding-top: 20px;
+}
+
+.player1-card img, .player2-card img {
+	display: block;
+	height: 200px;
+	margin: 20px auto;
+}
+
+.player1-control p, .player2-control p {
+	float: left;
+	font-size: 12px;
+	line-height: 1;
+	color: #0099cc;
+	text-transform: uppercase;
+	padding: 23px 20px 0 20px;
+}
+
+.player1-control div, .player2-control div {
+	width: 71%;
+	margin: 0 auto;
+}
+
+.player1-control button, .player2-control button {
+	float: left;
+	width: 65px;
+	height: 67px;
+	border: 0;
+}
+
+.red-button {
+	background: url('images/play-button-red.jpg') no-repeat;
+}
+
+.green-button {
+	background: url('images/play-button-green.jpg') no-repeat;
 }

@@ -11,45 +11,64 @@
 				<h1 class="visuallyhidden">Mario War! The Card Game</h1>
 			</header>
 
-			<aside class="scorebar">
-				<div class="player1-score">
-					<p>Player 1<span>32</span></p>
+			<aside class="clearfix scorebar-reg">
+				<div class="col col1-3 player1-title">
+					<p>Player 1</p>
 				</div>
-				<div class="player2-score">
-					<p>Player 2<span>20</span></p>
+				<div class="col col1-6 player1-score">
+					<p>32</p>
+				</div>
+				<div class="col col1-6 player2-score">
+					<p>32</p>
+				</div>
+				<div class="col col1-3 player2-title">
+					<p>Player 2</p>
 				</div>
 			</aside>
 
-			<!-- <h2 class="visuallyhidden">Choose Your Character</h2>
+			<section class="clearfix">
+				<h2 class="visuallyhidden">Mario War! Play Mode</h2>
 
-			<div class="mario-characters">
-				<img src="images/mario-sm.jpg" alt="mario" title="Mario">
-				<img src="images/luigi-sm.jpg" alt="luigi" title="Luigi">
-				<img src="images/bowser-sm.jpg" alt="bowser" title="Bowser">
-				<img src="images/princess-sm.jpg" alt="princess" title="Princess">
-				<img src="images/yoshi-sm.jpg" alt="yoshi" title="Yoshi">
-			</div>
+				<div class="col col1-12"></div>
 
-			<section>
-				<h3 class="visuallyhidden">Chosen Characters</h3>
-				<div class="col1-6">
-					<div class="player">
-						<img src="images/mario-pick.jpg" alt="mario">
-						<p>Player 1</p>
+				<div class="col col1-3 game-regular">
+					<div class="clearfix">
+						<div class="col col1-2 player1-char">
+							<img src="images/mario-main.jpg" alt="mario">
+						</div>
+						<div class="col col1-2 player1-card">
+							<img src="cards/2_1.png">
+						</div>
+					</div>
+					<div class="clearfix player1-control">
+						<div>
+							<p>Click</p>
+							<button id="player1-play" class="red-button"></button>
+							<p>Press A</p>
+						</div>
 					</div>
 				</div>
-				<div class="col1-6">
-					<div class="character-button">
-						<a href="mario-war.html">Play</a>
+
+				<div class="col col1-6"></div>
+
+				<div class="clearfix col col1-3 game-regular">
+					<div class="clearfix">
+						<div class="col col1-2 player2-card">
+							<img src="cards/3_1.png">
+						</div>
+						<div class="col col1-2 player2-char">
+							<img src="images/bowser-main.jpg" alt="bowser">
+						</div>
+					</div>
+					<div class="clearfix player2-control">
+						<div>
+							<p>Click</p>
+							<button id="player2-play" class="green-button"></button>
+							<p>Press L</p>
+						</div>
 					</div>
 				</div>
-				<div class="col1-6">
-					<div class="player">
-						<img src="images/bowser-pick.jpg" alt="mario">
-						<p>Player 2</p>
-					</div>
-				</div>
-			</section> -->
+			</section>
 		</main>
 		<script src="jquery-1.11.1.js"></script>
 		<script src="war.js"></script>
