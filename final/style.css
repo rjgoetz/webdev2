@@ -1,86 +1,107 @@
 /* style.css */
 
-html {
-	/*background: #4096ee;*/
-}
-
-body {
-	font: 14px/1.5 sans-serif;
-	width: 960px;
-	padding-bottom: 100px;
-	margin: 0 auto;
-	background: #efefef;
-}
-
-h1 {
+/* GLOBALS */
+* {
 	margin: 0;
-	padding: 20px 0;
-	text-align: center;
-	background: white;
-}
-
-.player {
-	margin: 30px 0;
-}
-
-.player h2 {
-	padding: 10px;
-}
-
-.player div {
-	width: 631px;
-	margin-left: 250px;
-}
-
-#cards-a, #cards-b {
-	height: 150px;
-}
-
-.player img {
-	height: 150px;
-	display: block;
-	float: left;
-	margin-right: 20px;
-}
-
-.player p {
-	padding: 25px 0 0 25px;
-	clear: both;
-}
-
-.player p:last-of-type {
 	padding: 0;
-	padding: 0 0 10px 25px;
-	height: 30px;
-	font-weight: bold;
-	color: red;
 }
 
-.bowser {
-	background:	url("bowser.png") no-repeat 10px 70px;
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
-.mario {
-	background:	url("mario-sm.png") no-repeat 10px 70px;
+.visuallyhidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px; width: 1px;
+  margin: -1px; padding: 0; border: 0;
 }
 
-.controls {
-	width: 100px;
-	margin: 40px auto;
+/* FONTS */
+@font-face {
+	font-family: 'Luckiest-Guy';
+	src: url('fonts/LuckiestGuy.ttf');
 }
 
-.controls button {
-	width: 100px;
-	height: 50px;
-	border: 0;
-	font-size: 1.25em;
-	background: #aaaaaa;
-	color: white;
+@font-face {
+	font-family: 'Press Start 2P';
+	src: url('fonts/PressStart2P-Regular.ttf');
+}
+
+
+/* PAGE */
+body {
+	font: 12px/1.5 'Press Start 2P', sans-serif;
+	width: 1280px;
+	margin: 0 auto;
+}
+
+main {
+	height: 736px;
+}
+
+/* HOME PAGE */
+
+.home-bg {
+	background:	#421213;
+}
+
+.home {
+	background:	url('mario-home-bg.jpg') no-repeat;
+	position: relative;
+	padding-left: 520px;
+}
+
+.home header {
+	width: 530px;
+	height: 145px;
+	background: url('mario-war-home-logo.jpg') no-repeat;
+	position: relative;
+	top: 66px;
+	left: 66px;
+}
+
+.home h1 {
+	font: 95px/1 'Luckiest-Guy', sans-serif;
+}
+
+.home h1 span {
+	display: block;
+	font-size: 48px;
+}
+
+.home h2 {
+	color: #ffffff;
+	font-size: 12px;
+	position: relative;
+	left: 0;
+	top: 100px;
 	text-transform: uppercase;
-	cursor: pointer;
+	letter-spacing: 1px;
 }
 
-.war-card {
-	border: 3px solid red;
-	padding: 5px;
+.home-buttons {
+	position: relative;
+	top: 435px;
+	left: 130px;
+}
+
+.home-buttons a {
+	font: 16px/1 'Press Start 2P', sans-serif;
+	display: inline-block;
+	height: 50px;
+	width: 200px;
+	background: #0099cc;
+	text-decoration: none;
+	color: #ffffff;
+	text-transform: uppercase;
+	padding: 17px 0 0 28px;
+}
+
+.home-buttons a:hover {
+	background: #ffcc00;
 }
