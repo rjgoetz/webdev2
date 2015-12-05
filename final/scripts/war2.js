@@ -2,8 +2,8 @@
 
 var
 	cardDeck = [],
-	playerA = [],
-   	playerB = []
+	player1 = [],
+  player2 = []
 ;
 
 // create initial deck of cards
@@ -25,7 +25,7 @@ function createDeck() {
 	randomCard();
 	cardDeck.push(card);
 
-	// buid 52 card deck
+	// build 52 card deck
 	while (cardDeck.length < 52) {
 
 		// search for duplicate card
@@ -49,259 +49,277 @@ function createDeck() {
 			cardDeck.push(card);
 		};
 	};
+
+	// test statements
+	if (cardDeck.length === 52) {
+		console.log("Card Deck Built Successfully");
+	} else {
+		console.log("Card Deck Failed");
+	};
 };
 
-// deal cards to player A (computer) and player B (user)
+// deal cards to player 1 and player 2
 function dealCards() {
 	var
 		card,
 		a = 0
 	;
 
-	// push cards to player A and B one by one
+	// push cards to players 1 and 2 one by one
  	for (var i = 0; i < cardDeck.length; i++) {
  		if (a === 0) {
  			card = cardDeck[i].splice(0, 2);
- 			playerB.push(card);
+ 			player2.push(card);
  			a = 1;
  		} else {
  			card = cardDeck[i].splice(0, 2);
- 			playerA.push(card);
+ 			player1.push(card);
  			a = 0;
  		};
  	};
 
 	// add card img file to document
-	$("#cards-a").append("<img id='card-a' src='cards/card-back.png'>");
-	$("#cards-b").append("<img id='card-b' src='cards/card-back.png'>");
+	$(".player1-card").append("<img id='card-1' src='cards/card-back.png'>");
+	$(".player2-card").append("<img id='card-2' src='cards/card-back.png'>");
 
+	// test statements
+	if (player1.length === 26 && player2.length === 26) {
+		console.log("Cards Dealt to Players Successfully");
+	} else {
+		console.log("Cards Not Dealt Correctly");
+	};
 };
 
 function playGame() {
-	var cardA,
-		cardB,
-		warCardsA,
-		warCardsB,
-		countA,
-		countB,
-		playedA = 0,
-		playedB = 0,
+	var card1,
+		card2,
+		warCards1,
+		warCards2,
+		count1,
+		count2,
+		played1 = 0,
+		played2 = 0,
 		winStatus
 	;
 
 	// remove card from player deck
 	function spliceCards(player) {
-		if (player === "playerA") {
-			cardA = playerA.splice(0, 1);
-			console.log("Card A = " + cardA[0][0]);
-		} else if (player === "playerB") {
-			cardB = playerB.splice(0, 1);
-			console.log("Card B = " + cardB[0][0]);
+		if (player === "player1") {
+			card1 = player1.splice(0, 1);
+			console.log("Card Player 1 = " + card1[0][0]);
+		} else if (player === "player2") {
+			card2 = player2.splice(0, 1);
+			console.log("Card Player 2 = " + card2[0][0]);
 		};
 	};
 
 	// remove War cards from player deck
-	function spliceCardsWar() {
-		warCardsA = playerA.splice(0, 5);
-		warCardsB = playerB.splice(0, 5);
-		console.log("War Cards A = " + warCardsA + " War Cards B = " + warCardsB);
-	}
+	// function spliceCardsWar() {
+	// 	warCards1 = player1.splice(0, 5);
+	// 	warCards2 = player2.splice(0, 5);
+	// 	console.log("War Cards Player 1 = " + warCards1 + " War Cards Player 2 = " + warCards2);
+	// }
 
 	// log scores to console
 	function logCards() {
-		console.log("Player A Score = " + countA + ", Player B Score = " + countB);
+		console.log("Player 1 Score = " + count1 + ", Player 2 Score = " + count2);
 	};
 
 	// count player cards
 	function countCards() {
-		countA = playerA.length;
-		$("#card-status-a span").text(countA);
-		countB = playerB.length;
-		$("#card-status-b span").text(countB);
+		count1 = player1.length;
+		$(".player1-score p").text(count1);
+		count2 = player2.length;
+		$(".player2-score p").text(count2);
 	};
 
 	// display cards (regular play)
 	function displayCard(player) {
-		if (player === "playerA") {
+		if (player === "player1") {
 			// reset card
-			$("#cards-a").html("");
+			$(".player1-card").html("");
 
 			// add initial card state
-			$("#cards-a").append("<img id='card-a'>");
+			$(".player1-card").append("<img id='card-1'>");
 
 			// add player card
-			$("#card-a").attr("src", "cards/" + cardA[0][0] + "_" + cardA[0][1] + ".png");
-		} else if (player === "playerB") {
+			$(".player1-card img").attr("src", "cards/" + card1[0][0] + "_" + card1[0][1] + ".png");
+		} else if (player === "player2") {
 			// reset card
-			$("#cards-b").html("");
+			$(".player2-card").html("");
 
 			// add initial card state
-			$("#cards-b").append("<img id='card-b'>");
+			$(".player2-card").append("<img id='card-2'>");
 
 			// add player card
-			$("#card-b").attr("src", "cards/" + cardB[0][0] + "_" + cardB[0][1] + ".png");
+			$(".player2-card img").attr("src", "cards/" + card2[0][0] + "_" + card2[0][1] + ".png");
 		};
 	};
 
 	// display cards (war play)
-	function displayWarCards() {
-		$("#cards-a").html("");
-		$("#cards-b").html("");
-
-		for (var i = 0; i < warCardsA.length; i++) {
-			$("#cards-a").append("<img src='cards/" + warCardsA[i][0] + "_" + warCardsA[i][1] + ".png'>");
-		};
-
-		for (var j = 0; j < warCardsB.length; j++) {
-			$("#cards-b").append("<img src='cards/" + warCardsB[j][0] + "_" + warCardsB[j][1] + ".png'>");
-		};
-	};
+	// function displayWarCards() {
+	// 	$("#cards-a").html("");
+	// 	$("#cards-b").html("");
+	//
+	// 	for (var i = 0; i < warCardsA.length; i++) {
+	// 		$("#cards-a").append("<img src='cards/" + warCardsA[i][0] + "_" + warCardsA[i][1] + ".png'>");
+	// 	};
+	//
+	// 	for (var j = 0; j < warCardsB.length; j++) {
+	// 		$("#cards-b").append("<img src='cards/" + warCardsB[j][0] + "_" + warCardsB[j][1] + ".png'>");
+	// 	};
+	// };
 
 	// playing dynamics
-	function playLogic() {		
-		if (countA > 0 && countB > 0) {
-			if (cardA[0][0] > cardB[0][0]) {
-				console.log("Player A Wins");
-				playerA = playerA.concat(cardA, cardB);
+	function playLogic() {
+		if (count1 > 0 && count2 > 0) {
+			if (card1[0][0] > card2[0][0]) {
+				console.log("Player 1 Wins");
+				player1 = player1.concat(card1, card2);
+				$(".player2-card").append("<p class='you-lost'>X</p>");
 				countCards();
 
 				// win status
-				$("#win-status-a").text("You win this round!");
+				//$("#win-status-a").text("You win this round!");
 
 				logCards();
-			} else if (cardA[0][0] === cardB[0][0]) {
-				function playWar() {
-					console.log("Play War");
-					if (playerA[4][0] > playerB[4][0]) { //need to fix this bug (not always 4 cards in war)
-						console.log("Player A Wins War");
-						spliceCardsWar();
-						playerA = playerA.concat(warCardsA, warCardsB);
-						countCards();
-						displayWarCards();
-
-						// highlight last "War" card
-						$("#cards-a img:last-of-type").attr("class", "war-card");
-
-						// win status
-						$("#win-status-a").text("You win war!");
-
-						logCards();
-					} else if (playerA[4][0] === playerB[4][0]) {
-						console.log("It's a stalemate! Redraw!");
-						spliceCardsWar();
-						playerA = playerA.concat(warCardsA);
-						playerB = playerB.concat(warCardsB);
-						countCards();
-
-						// win status
-						$("#win-status-a").text("You tie! Redraw!");
-						$("#win-status-b").text("You tie! Redraw!");
-
-						playWar();
-					} else {
-						console.log("Player B Wins War");
-						spliceCardsWar();
-						playerB = playerB.concat(warCardsB, warCardsA);
-						countCards();
-						displayWarCards();
-
-						// highlight last "War" card
-						$("#cards-b img:last-of-type").attr("class", "war-card");
-
-						// win status
-						$("#win-status-b").text("You win war!");
-
-						logCards();
-					}
-				};
-				playWar();
+			// } else if (card1[0][0] === card2[0][0]) {
+			// 	function playWar() {
+			// 		console.log("Play War");
+			// 		if (playerA[4][0] > playerB[4][0]) { //need to fix this bug (not always 4 cards in war)
+			// 			console.log("Player A Wins War");
+			// 			spliceCardsWar();
+			// 			playerA = playerA.concat(warCardsA, warCardsB);
+			// 			countCards();
+			// 			displayWarCards();
+			//
+			// 			// highlight last "War" card
+			// 			$("#cards-a img:last-of-type").attr("class", "war-card");
+			//
+			// 			// win status
+			// 			$("#win-status-a").text("You win war!");
+			//
+			// 			logCards();
+			// 		} else if (playerA[4][0] === playerB[4][0]) {
+			// 			console.log("It's a stalemate! Redraw!");
+			// 			spliceCardsWar();
+			// 			playerA = playerA.concat(warCardsA);
+			// 			playerB = playerB.concat(warCardsB);
+			// 			countCards();
+			//
+			// 			// win status
+			// 			$("#win-status-a").text("You tie! Redraw!");
+			// 			$("#win-status-b").text("You tie! Redraw!");
+			//
+			// 			playWar();
+			// 		} else {
+			// 			console.log("Player B Wins War");
+			// 			spliceCardsWar();
+			// 			playerB = playerB.concat(warCardsB, warCardsA);
+			// 			countCards();
+			// 			displayWarCards();
+			//
+			// 			// highlight last "War" card
+			// 			$("#cards-b img:last-of-type").attr("class", "war-card");
+			//
+			// 			// win status
+			// 			$("#win-status-b").text("You win war!");
+			//
+			// 			logCards();
+			// 		}
+			// 	};
+			// 	playWar();
 			} else {
-				console.log("Player B Wins");
-				playerB = playerB.concat(cardB, cardA);
+				console.log("Player 2 Wins");
+				player2 = player2.concat(card2, card1);
+				$(".player1-card").append("<p class='you-lost'>X</p>");
 				countCards();
 
 				// win status
-				$("#win-status-b").text("You win this round!");
+				//$("#win-status-b").text("You win this round!");
 
 				logCards();
 			}
 		} else {
 			console.log("You won the war!");
-			if (countA === 0) {
-				$("#win-status-a").text("You lost!");
-				$("#win-status-b").text("You Won the Game!");
-			} else if (countB === 0) {
-				$("#win-status-b").text("You lost!");
-				$("#win-status-a").text("You Won the Game!");
-			}
-		};				
+			// if (count1 === 0) {
+			// 	$("#win-status-a").text("You lost!");
+			// 	$("#win-status-b").text("You Won the Game!");
+			// } else if (count2 === 0) {
+			// 	$("#win-status-b").text("You lost!");
+			// 	$("#win-status-a").text("You Won the Game!");
+			// }
+		};
 	};
-	
+
 
 	// Play Functions
-	var callPlayerA = function() {
-		if (playedA === 0 && playedB === 0) {
-			spliceCards("playerA");
-			displayCard("playerA");
-			playedA = 1;
+	var callPlayer1 = function() {
+		if (played1 === 0 && played2 === 0) {
+			spliceCards("player1");
+			displayCard("player1");
+			played1 = 1;
 
-			//reset playerB card image
-			$("#card-b").attr("src", "cards/card-back.png");
-
-			//reset win status
-			$("#win-status-a").text("");
-			$("#win-status-b").text("");
-
-		} else if (playedB === 1) {
-			spliceCards("playerA");
-			displayCard("playerA");
-			countCards();
-			playLogic();
-			playedA = 0;
-			playedB = 0;
-		};	
-	};
-
-	// click "play" for Player A
-	$("#play-a").click(callPlayerA);
-	// press "a" for Player A
-	$(document).keypress(function(e) {
-		if (e.which === 65) {
-			callPlayerA;
-		}
-	});
-
-	var callPlayerB = function() {
-		if (playedA === 0 && playedB === 0) {
-			spliceCards("playerB");
-			displayCard("playerB");
-			playedB = 1;
-
-			//reset playerA card image
-			$("#card-a").attr("src", "cards/card-back.png");
+			//reset player2 card image
+			$(".player2-card img").attr("src", "cards/card-back.png");
+			$(".player2-card p").remove();
 
 			//reset win status
-			$("#win-status-a").text("");
-			$("#win-status-b").text("");
+			// $("#win-status-a").text("");
+			// $("#win-status-b").text("");
 
-		} else if (playedA === 1) {
-			spliceCards("playerB");
-			displayCard("playerB");
+		} else if (played2 === 1) {
+			spliceCards("player1");
+			displayCard("player1");
 			countCards();
 			playLogic();
-			playedA = 0;
-			playedB = 0;
-		};	
+			played1 = 0;
+			played2 = 0;
+		};
 	};
-	
+
+	// click "play" for Player 1
+	$("#player1-play").click(callPlayer1);
+	// press "a" for Player 1
+	// $(document).keypress(function(e) {
+	// 	if (e.which === 65) {
+	// 		callPlayerA;
+	// 	}
+	// });
+
+	var callPlayer2 = function() {
+		if (played1 === 0 && played2 === 0) {
+			spliceCards("player2");
+			displayCard("player2");
+			played2 = 1;
+
+			//reset player1 card image
+			$(".player1-card img").attr("src", "cards/card-back.png");
+			$(".player1-card p").remove();
+
+
+			//reset win status
+			// $("#win-status-a").text("");
+			// $("#win-status-b").text("");
+
+		} else if (played1 === 1) {
+			spliceCards("player2");
+			displayCard("player2");
+			countCards();
+			playLogic();
+			played1 = 0;
+			played2 = 0;
+		};
+	};
+
 	// click "play" for Player B
-	$("#play-b").click(callPlayerB);
+	$("#player2-play").click(callPlayer2);
 	// press "L" for Player B
-	window.onkeypress = function(event) {
-		if (event.keyCode === 76) {
-			callPlayerB;
-		}
-	};
+	// window.onkeypress = function(event) {
+	// 	if (event.keyCode === 76) {
+	// 		callPlayerB;
+	// 	}
+	// };
 
 };
 

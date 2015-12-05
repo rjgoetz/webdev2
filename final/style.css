@@ -281,6 +281,10 @@ main {
 	padding-top: 20px;
 }
 
+.player1-card, .player2-card {
+	position: relative;
+}
+
 .player1-card img, .player2-card img {
 	display: block;
 	height: 200px;
@@ -306,12 +310,22 @@ main {
 	width: 65px;
 	height: 67px;
 	border: 0;
+	cursor: pointer;
 }
 
-.red-button {
-	background: url('images/play-button-red.jpg') no-repeat;
+.player1-control button:focus, .player2-control button:focus {
+	outline:0;
 }
 
 .green-button {
 	background: url('images/play-button-green.jpg') no-repeat;
+}
+
+.you-lost {
+	font-size: 100px;
+	line-height: 1;
+	color: #aa1e23;
+	position: absolute;
+	top: 75px;
+	left: 52px;
 }
