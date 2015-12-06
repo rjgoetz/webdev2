@@ -1,10 +1,22 @@
-// war2.js //
+// war.js //
 
 var
 	cardDeck = [],
 	player1 = [],
   player2 = []
 ;
+
+// set character images
+function setCharImage() {
+	var
+		player1Char = sessionStorage.player1,
+		player2Char = sessionStorage.player2
+	;
+
+	// set player characters
+	$(".player1-char img").attr("src", "images/" + player1Char + "-main.jpg");
+	$(".player2-char img").attr("src", "images/" + player2Char + "-main.jpg");
+}
 
 // create initial deck of cards
 function createDeck() {
@@ -324,6 +336,9 @@ function playGame() {
 };
 
 $(document).ready(function() {
+	$(".fade-bg").fadeOut(1000);
+
+	setCharImage();
 	createDeck();
 	dealCards();
 	playGame();
