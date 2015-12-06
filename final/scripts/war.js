@@ -289,7 +289,7 @@ function playGame() {
 			$(".player1-card p").remove();
 
 
-			
+
 		} else if (played1 === 1) {
 			spliceCards("player2");
 			displayCard("player2");
