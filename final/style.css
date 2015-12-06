@@ -243,6 +243,15 @@ main {
 	background: #ffcc00;
 }
 
+.character-button .inactive {
+	background: #999999;
+	cursor: default;
+}
+
+.character-button .inactive:hover {
+	background: #999999;
+}
+
 /* REGULAR PLAY MODE */
 
 .regular-mode {

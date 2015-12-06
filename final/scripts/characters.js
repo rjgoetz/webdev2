@@ -20,6 +20,7 @@ function addCharacter() {
       console.log("Player 2 : " + player2CharName);
       sessionStorage.setItem("player2", player2CharName);
     };
+    playButtonActive();
   });
 };
 
@@ -30,7 +31,7 @@ function choosePlayerBox() {
     } else {
       player2Active = 0;
       player1Active = 1;
-    }
+    };
   });
 
   $("#two").click(function() {
@@ -39,8 +40,20 @@ function choosePlayerBox() {
     } else {
       player1Active = 0;
       player2Active = 1;
-    }
+    };
   });
+};
+
+function playButtonActive() {
+  var
+    a = typeof player1CharName,
+    b = typeof player2CharName
+  ;
+
+  if (a === "string" && b === "string") {
+    $(".character-button a").attr("class", "").attr("href", "mario-war.html");
+    console.log("true");
+  };
 };
 
 /* NEED TO WORK ON THIS */
@@ -55,4 +68,5 @@ function choosePlayerBox() {
 $(document).ready(function() {
   addCharacter();
   choosePlayerBox();
+  playButtonActive();
 });
