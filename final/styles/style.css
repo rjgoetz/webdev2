@@ -1,0 +1,363 @@
+/* style.css */
+
+/* GLOBALS */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.visuallyhidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px; width: 1px;
+  margin: -1px; padding: 0; border: 0;
+}
+
+.clearfix:after {
+   content: ".";
+   visibility: hidden;
+   display: block;
+   height: 0;
+   clear: both;
+}
+
+/* GRID */
+.col {
+	float: left;
+	padding-right: 16px;
+	min-height: 1px;
+}
+
+.col1-12 {
+	width: 8.3333%;
+}
+
+.col1-6 {
+	width: 16.6666%;
+}
+
+.col1-5 {
+	width: 20%;
+}
+
+.col1-3 {
+	width: 33.3333%;
+}
+
+.col1-2 {
+	width: 50%;
+}
+
+.col3-4 {
+	width: 75%;
+}
+
+/* FONTS */
+@font-face {
+	font-family: 'Luckiest-Guy';
+	src: url('../fonts/LuckiestGuy.ttf');
+}
+
+@font-face {
+	font-family: 'Press Start 2P';
+	src: url('../fonts/PressStart2P-Regular.ttf');
+}
+
+
+/* PAGE */
+body {
+	font: 12px/1.5 'Press Start 2P', sans-serif;
+	width: 1280px;
+	margin: 0 auto;
+}
+
+main {
+	height: 736px;
+}
+
+/* HOME PAGE */
+
+.home-bg {
+	background:	#421213;
+}
+
+.home {
+	background:	url('../images/mario-home-bg.jpg') no-repeat;
+	position: relative;
+	padding-left: 520px;
+}
+
+.home header {
+	width: 530px;
+	height: 145px;
+	background: url('../images/mario-war-home-logo.jpg') no-repeat;
+	position: relative;
+	top: 66px;
+	left: 66px;
+}
+
+.home h2 {
+	color: #ffffff;
+	font-size: 11px;
+	position: relative;
+	left: 0;
+	top: 100px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.home-buttons {
+	position: relative;
+	top: 435px;
+	left: 130px;
+}
+
+.home-buttons a {
+	font: 16px/1 'Press Start 2P', sans-serif;
+	display: inline-block;
+	height: 50px;
+	width: 200px;
+	background: #0099cc;
+	text-decoration: none;
+	color: #ffffff;
+	text-transform: uppercase;
+	padding: 17px 0 0 28px;
+}
+
+.home-buttons a:hover {
+	background: #ffcc00;
+}
+
+.home-buttons .inactive {
+	background: #999999;
+	cursor: default;
+}
+
+.home-buttons .inactive:hover {
+	background: #999999;
+}
+
+/* TOP BANNER */
+
+.top-banner-char {
+	height: 89px;
+	background:
+		url('../images/mario-war-top-logo.jpg') no-repeat 120px 8px,
+		url('../images/mario-war-top-char.jpg') no-repeat top center;
+}
+
+.top-banner-char a {
+	display: block;
+	width: 330px;
+	height: 78px;
+}
+
+.top-banner-reg {
+	height: 89px;
+	background:
+		url('../images/mario-war-top-logo.jpg') no-repeat 120px 8px,
+		url('../images/mario-war-top-reg.jpg') no-repeat top center;
+}
+
+.top-banner-reg a {
+	display: block;
+	width: 330px;
+	height: 78px;
+}
+
+/* CHARACTER PAGE */
+
+.character {
+	background: url('../images/mario-character-bg.jpg') no-repeat;
+}
+
+.character-bg {
+	background: #336633;
+}
+
+.character h2 {
+	font: 50px/1 'Luckiest-Guy' sans-serif;
+	color: #ffffff;
+	text-align: center;
+	padding-top: 37px;
+}
+
+.mario-characters {
+	height: 190px;
+	margin: 92px auto 50px auto;
+	position: relative;
+}
+
+.mario-characters div p {
+	text-align: center;
+	text-transform: uppercase;
+	color: #ffffff;
+	font-size: 12px;
+	line-height: 1;
+	padding-top: 10px;
+}
+
+.mario-characters img:hover {
+	position: relative;
+	bottom: 7px;
+	cursor: pointer;
+}
+
+.player1-choice, .player2-choice {
+	width: 200px;
+	height: 280px;
+	background: #66cc66;
+	position: relative;
+	cursor: pointer;
+}
+
+.player1-choice p, .player2-choice p {
+	font-size: 18px;
+	text-transform: uppercase;
+	color: #ffcc00;
+	position: absolute;
+	bottom: 10px;
+	left: 27px;
+}
+
+.player1-choice div, .player2-choice div {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	background: #ffcc00;
+	text-align: center;
+	top: 0;
+}
+
+.character-button {
+	margin-top: 110px;
+}
+
+.character-button a {
+	font: 16px/1 'Press Start 2P', sans-serif;
+	display: block;
+	height: 50px;
+	width: 200px;
+	background: #0099cc;
+	text-decoration: none;
+	color: #ffffff;
+	text-transform: uppercase;
+	padding: 17px 0 0 65px;
+}
+
+.character-button a:hover {
+	background: #ffcc00;
+}
+
+.character-button .inactive {
+	background: #999999;
+	cursor: default;
+}
+
+.character-button .inactive:hover {
+	background: #999999;
+}
+
+/* REGULAR PLAY MODE */
+
+.regular-mode {
+	background: url('../images/mario-regular-mode-bg.jpg') no-repeat center 5px;
+}
+
+.regular-mode-bg {
+	background: #336633;
+}
+
+.scorebar-reg {
+	background: #0099cc;
+	height: 50px;
+}
+
+.scorebar-reg .player1-title p, .scorebar-reg .player2-title p {
+	color: #ffffff;
+	font-size: 18px;
+	text-transform: uppercase;
+	text-align: center;
+	padding-top: 15px;
+}
+
+.scorebar-reg .player1-score, .scorebar-reg .player2-score {
+	color: #ffcc00;
+	font-size: 36px;
+	line-height: 1;
+	padding-top: 8px;
+}
+
+.scorebar-reg .player2-score {
+	text-align: right;
+}
+
+.regular-mode section {
+	padding-top: 20px;
+}
+
+.player1-card, .player2-card {
+	position: relative;
+}
+
+.player1-card img, .player2-card img {
+	display: block;
+	height: 200px;
+	margin: 20px auto;
+}
+
+.player1-control p, .player2-control p {
+	float: left;
+	font-size: 12px;
+	line-height: 1;
+	color: #0099cc;
+	text-transform: uppercase;
+	padding: 23px 20px 0 20px;
+}
+
+.player1-control div, .player2-control div {
+	width: 71%;
+	margin: 0 auto;
+}
+
+.player1-control button, .player2-control button {
+	float: left;
+	width: 65px;
+	height: 67px;
+	border: 0;
+	cursor: pointer;
+}
+
+.player1-control button:focus, .player2-control button:focus {
+	outline:0;
+}
+
+.green-button {
+	background: url('../images/play-button-green.jpg') no-repeat;
+}
+
+.you-lost {
+	font-size: 100px;
+	line-height: 1;
+	color: #aa1e23;
+	position: absolute;
+	top: 75px;
+	left: 52px;
+}
+
+.fade-bg {
+	background: #ffffff;
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+}
