@@ -36,6 +36,12 @@ html {
 	min-height: 1px;
 }
 
+.col-right {
+	float: right;
+	padding-left: 16px;
+	min-height: 1px;
+}
+
 .col1-12 {
 	width: 8.3333%;
 }
@@ -58,6 +64,14 @@ html {
 
 .col3-4 {
 	width: 75%;
+}
+
+.col5-12 {
+	width: 41.66667%;
+}
+
+.col1-4 {
+	width: 25%;
 }
 
 /* FONTS */
@@ -173,6 +187,19 @@ main {
 	height: 78px;
 }
 
+.top-banner-war {
+	height: 89px;
+	background:
+		url('../images/mario-war-top-logo.jpg') no-repeat 120px 8px,
+		url('../images/mario-war-top-war.jpg') no-repeat top center;
+}
+
+.top-banner-war a {
+	display: block;
+	width: 330px;
+	height: 78px;
+}
+
 /* CHARACTER PAGE */
 
 .character {
@@ -277,6 +304,7 @@ main {
 }
 
 .scorebar-reg {
+	position: relative;
 	background: #0099cc;
 	height: 50px;
 }
@@ -360,4 +388,97 @@ main {
 	width: 100%;
 	height: 100%;
 	z-index: 2;
+}
+
+/* WAR MODE */
+.warbar {
+	background: #ffcc00;
+	width: 100%;
+	height: 50px;
+	position: absolute;*/
+	top: 0;
+	z-index: 10;
+}
+
+.warbar p {
+	color: #aa1e23;
+	font-size: 18px;
+	text-transform: uppercase;
+	text-align: center;
+	padding-top: 15px;
+}
+
+.war-cards1, .war-cards2 {
+	position: relative;
+}
+.war-cards1 img, .war-cards2 img {
+	display: block;
+	width: 100px;
+	margin: 30px auto;
+}
+
+.war-cards1 div:last-of-type img, .war-cards2 div:last-of-type img {
+	position: relative;
+	bottom: 63px;
+	border: 3px solid #aa1e23;
+	padding: 3px;
+}
+
+.you-lost-war1 {
+	font-size: 80px;
+	line-height: 1;
+	color: #aa1e23;
+	position: absolute;
+	top: 5px;
+	right: 44px;
+}
+
+.you-lost-war2 {
+	font-size: 80px;
+	line-height: 1;
+	color: #aa1e23;
+	position: absolute;
+	top: 5px;
+	left: 52px;
+}
+
+.winner-bg {
+	position: absolute;
+	margin: 0 auto;
+	width: 1280px;
+	height: 736px;
+	z-index: 99;
+	display: none;
+}
+
+.winner-bg p {
+	position: absolute;
+	font-size: 40px;
+	top: 60px;
+	left: 160px;
+	text-transform: uppercase;
+	color: #ffffff;
+	line-height: 1;
+}
+
+.replay-button {
+	position: absolute;
+	bottom: 80px;
+	left: 540px;
+}
+
+.replay-button a {
+	font: 16px/1 'Press Start 2P', sans-serif;
+	display: inline-block;
+	height: 50px;
+	width: 200px;
+	background: #0099cc;
+	text-decoration: none;
+	color: #ffffff;
+	text-transform: uppercase;
+	padding: 17px 0 0 28px;
+}
+
+.replay-button a:hover {
+	background: #ffcc00;
 }

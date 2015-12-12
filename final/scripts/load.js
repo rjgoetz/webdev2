@@ -2,7 +2,7 @@
 
 function loadImages() {
 	var images = new Array();
-		
+
 		function preload() {
 			for (i = 0; i < preload.arguments.length; i++) {
 				images[i] = new Image();
@@ -20,7 +20,9 @@ function loadImages() {
 			"images/mario-war-top-char.jpg",
 			"images/mario-war-top-logo.jpg",
 			"images/mario-war-top-reg.jpg",
+			"images/mario-war-top-war.jpg",
 			"images/play-button-green.jpg",
+			"images/winner-bg.jpg",
 
 			// character images
 			"images/bowser-main.jpg",

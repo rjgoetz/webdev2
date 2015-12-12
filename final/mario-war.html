@@ -5,8 +5,15 @@
 		<link href="styles/style.css" type="text/css" rel="stylesheet">
 	</head>
 	<body class="regular-mode-bg">
-		<div class="fade-bg"></div>
+		<!-- <div class="fade-bg"></div> -->
 		<main class="regular-mode">
+			<div class="winner-bg">
+				<img src="images/winner-bg.jpg" alt="mario vs bowser">
+				<p></p>
+				<div class="replay-button">
+					<a href="index.html">Play Again</a>
+				</div>
+			</div>
 			<header class="top-banner-reg">
 				<a href="index.html"></a>
 				<h1 class="visuallyhidden">Mario War! The Card Game</h1>
@@ -30,45 +37,61 @@
 			<section class="clearfix">
 				<h2 class="visuallyhidden">Mario War! Play Mode</h2>
 
-				<div class="col col1-12"></div>
-
-				<div class="col col1-3 game-regular">
-					<div class="clearfix">
-						<div class="col col1-2 player1-char">
-							<img src="">
+				<div class="clearfix">
+					<div class="col col1-12"></div>
+					<!--PLAYER 1 MODULE-->
+					<div class="col col1-3 game-regular">
+						<div class="clearfix">
+							<div class="col col1-2 player1-char">
+								<img src="">
+							</div>
+							<div class="col col1-2 player1-card">
+								<!-- card image placeholder -->
+							</div>
 						</div>
-						<div class="col col1-2 player1-card">
-							<!-- card image placeholder -->
+						<div class="clearfix player1-control">
+							<div>
+								<p>Click</p>
+								<button id="player1-play" class="green-button"></button>
+								<!-- <p>Press A</p> -->
+							</div>
 						</div>
 					</div>
-					<div class="clearfix player1-control">
-						<div>
-							<p>Click</p>
-							<button id="player1-play" class="green-button"></button>
-							<!-- <p>Press A</p> -->
+
+					<div class="col col1-6"></div>
+					<!--PLAYER 2 MODULE-->
+					<div class="clearfix col col1-3 game-regular">
+						<div class="clearfix">
+							<div class="col col1-2 player2-card">
+								<!-- card image placeholder -->
+							</div>
+							<div class="col col1-2 player2-char">
+								<img src="images/bowser-main.jpg" alt="bowser">
+							</div>
 						</div>
+						<div class="clearfix player2-control">
+							<div>
+								<p>Click</p>
+								<button id="player2-play" class="green-button"></button>
+								<!-- <p>Press L</p> -->
+							</div>
+						</div>
+					</div>
+
+					<div class="col col1-12"></div>
+				</div>
+
+				<div class="clearfix">
+					<div class="col col1-12"></div>
+					<div class="col col5-12 war-cards1">
+						<!-- war cards placeholder -->
+					</div>
+					<div class="col-right col1-12"></div>
+					<div class="col-right col5-12 war-cards2">
+						<!-- war cards placeholder -->
 					</div>
 				</div>
 
-				<div class="col col1-6"></div>
-
-				<div class="clearfix col col1-3 game-regular">
-					<div class="clearfix">
-						<div class="col col1-2 player2-card">
-							<!-- card image placeholder -->
-						</div>
-						<div class="col col1-2 player2-char">
-							<img src="images/bowser-main.jpg" alt="bowser">
-						</div>
-					</div>
-					<div class="clearfix player2-control">
-						<div>
-							<p>Click</p>
-							<button id="player2-play" class="green-button"></button>
-							<!-- <p>Press L</p> -->
-						</div>
-					</div>
-				</div>
 			</section>
 		</main>
 		<script src="scripts/jquery-1.11.1.js"></script>
