@@ -420,8 +420,6 @@ main {
 .war-cards1 div:last-of-type img, .war-cards2 div:last-of-type img {
 	position: relative;
 	bottom: 63px;
-	border: 3px solid #aa1e23;
-	padding: 3px;
 }
 
 .you-lost-war1 {
@@ -430,7 +428,7 @@ main {
 	color: #aa1e23;
 	position: absolute;
 	top: 5px;
-	right: 44px;
+	right: 28px;
 }
 
 .you-lost-war2 {
@@ -439,7 +437,7 @@ main {
 	color: #aa1e23;
 	position: absolute;
 	top: 5px;
-	left: 52px;
+	left: 38px;
 }
 
 .winner-bg {

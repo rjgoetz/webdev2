@@ -3,16 +3,23 @@
 var
 	cardDeck = [],
 	player1 = [],
-  player2 = []
+  player2 = [],
+	player1Char = sessionStorage.player1,
+	player2Char = sessionStorage.player2,
+	card1,
+	card2,
+	warCards1,
+	warCards2,
+	count1,
+	count2,
+	played1 = 0,
+	played2 = 0,
+	playerCardsLength1,
+	playerCardsLength2
 ;
 
 // set character images
 function setCharImage() {
-	var
-		player1Char = sessionStorage.player1,
-		player2Char = sessionStorage.player2
-	;
-
 	// set player characters
 	$(".player1-char img").attr("src", "images/" + player1Char + "-main.jpg");
 	$(".player2-char img").attr("src", "images/" + player2Char + "-main.jpg");
@@ -103,17 +110,6 @@ function dealCards() {
 }
 
 function playGame() {
-	var card1,
-		card2,
-		warCards1,
-		warCards2,
-		count1,
-		count2,
-		played1 = 0,
-		played2 = 0,
-		playerCardsLength1,
-		playerCardsLength2
-	;
 
 	// remove card from player deck
 	function spliceCards(player) {
@@ -174,12 +170,12 @@ function playGame() {
 	function displayWarCards() {
 		// append war card graphics player 1
 		for (var i = 0; i < warCards1.length; i++) {
-			$(".war-cards1").append("<div class='col col1-4'><img src='cards/" + warCards1[i][0] + "_" + warCards1[i][1] + ".png'></div>");
+			$(".war-cards1").append("<div class='col col1-4' style='position: relative'><img src='cards/" + warCards1[i][0] + "_" + warCards1[i][1] + ".png'></div>");
 		}
 
 		// append war card graphics player 2
 		for (var i = 0; i < warCards2.length; i++) {
-			$(".war-cards2").append("<div class='col-right col1-4'><img src='cards/" + warCards2[i][0] + "_" + warCards2[i][1] + ".png'></div>");
+			$(".war-cards2").append("<div class='col-right col1-4' style='position: relative'><img src='cards/" + warCards2[i][0] + "_" + warCards2[i][1] + ".png'></div>");
 		}
 	}
 
@@ -189,118 +185,119 @@ function playGame() {
 		$(".war-cards2").html("");
 	}
 
+	// war mode logic
+	function playWar() {
+		console.log("Play War");
+
+		// last war card determines winner
+		if (player1[playerCardsLength1][0] > player2[playerCardsLength2][0]) {
+			// log winner to console and update war scoreboard
+			console.log("Player 1 Wins War");
+			$(".warbar").append("<p>Player 1 Wins War!</p>");
+
+			// grab war cards from player1 and player2
+			spliceCardsWar();
+
+			// concatenate initial cards and warcards into player1's deck
+			player1 = player1.concat(card1, warCards1, card2, warCards2);
+
+			// display current score in scorebar
+			countCards();
+
+			// display card graphics
+			displayWarCards();
+
+			// style loser's war card
+			$(".war-cards2 div:last-of-type").append("<p class='you-lost-war2'>X</p>");
+
+			// add cards to console
+			logCards();
+
+		} else if (player1[playerCardsLength1][0] === player2[playerCardsLength2][0]) {
+			// log tie to console - redraw
+			console.log("It's a stalemate! Redraw!");
+
+			// grab war cards from player1 and player2
+			spliceCardsWar();
+
+			// concatenate initial cards and warcards back into players' decks
+			player1 = player1.concat(warCards1);
+			player2 = player2.concat(warCards2);
+
+			// display current score in scorebar
+			countCards();
+
+			// replay war
+			playWar();
+
+		} else {
+			// log winner to console
+			console.log("Player 2 Wins War");
+			$(".warbar").append("<p>Player 2 Wins War!</p>");
+
+			// grab war cards from player1 and player2
+			spliceCardsWar();
+
+			// concatenate initial cards and warcards into player2's deck
+			player2 = player2.concat(card2, warCards2, card1, warCards1);
+
+			// display current score in scorebar
+			countCards();
+
+			// display card graphics
+			displayWarCards();
+
+			// style loser's war card
+			$(".war-cards1 div:last-of-type").append("<p class='you-lost-war1'>X</p>");
+
+			// add cards to console
+			logCards();
+		}
+	}
+
 	// playing dynamics
 	function playLogic() {
-		if (count1 > 0 && count2 > 0) {
-			if (card1[0][0] > card2[0][0]) {
-				// log winner to console
-				console.log("Player 1 Wins");
+		if (card1[0][0] > card2[0][0]) {
+			// log winner to console
+			console.log("Player 1 Wins");
 
-				// concatenate cards to player1's deck
-				player1 = player1.concat(card1, card2);
+			// concatenate cards to player1's deck
+			player1 = player1.concat(card1, card2);
 
-				// style loser's card
-				$(".player2-card").append("<p class='you-lost'>X</p>");
+			// style loser's card
+			$(".player2-card").append("<p class='you-lost'>X</p>");
 
-				// update score in scoreboard
-				countCards();
+			// update score in scoreboard
+			countCards();
 
-				// add cards to console
-				logCards();
+			// add cards to console
+			logCards();
 
-			} else if (card1[0][0] === card2[0][0]) {
-					// pre-war setup : find length of player cards in case there are less than 4 cards left in player hand
-					if (player1.length <= 4) {
-						playerCardsLength1 = player1.length - 1; // to account for indexing
-					} else {
-						playerCardsLength1 = 3;
-					}
-
-					if (player2.length <= 4) {
-						playerCardsLength2 = player2.length - 1; // to account for indexing
-					} else {
-						playerCardsLength2 = 3;
-					}
-
-					// set yellow war scoreboard
-					$("header").attr("class", "top-banner-war");
-
-					// append war scorebar
-					$(".scorebar-reg").append("<div class='warbar'></div>");
-
-					// begin war mode logic
-					function playWar() {
-						console.log("Play War");
-
-						// last war card determines winner
-						if (player1[playerCardsLength1][0] > player2[playerCardsLength2][0]) {
-						// log winner to console and update war scoreboard
-						console.log("Player 1 Wins War");
-						$(".warbar").append("<p>Player 1 Wins War!</p>");
-
-						// grab war cards from player1 and player2
-						spliceCardsWar();
-
-						// concatenate initial cards and warcards into player1's deck
-						player1 = player1.concat(card1, warCards1, card2, warCards2);
-
-						// display current score in scorebar
-						countCards();
-
-						// display card graphics
-						displayWarCards();
-
-						// style loser's war card
-						$(".war-cards2 div:last-of-type").append("<p class='you-lost-war2'>X</p>");
-
-						// add cards to console
-						logCards();
-
-					} else if (player1[playerCardsLength1][0] === player2[playerCardsLength2][0]) {
-						// log tie to console - redraw
-						console.log("It's a stalemate! Redraw!");
-
-						// grab war cards from player1 and player2
-						spliceCardsWar();
-
-						// concatenate initial cards and warcards back into players' decks
-						player1 = player1.concat(warCards1);
-						player2 = player2.concat(warCards2);
-
-						// display current score in scorebar
-						countCards();
-
-						// replay war
-						playWar();
-
-					} else {
-						// log winner to console
-						console.log("Player 2 Wins War");
-						$(".warbar").append("<p>Player 2 Wins War!</p>");
-
-						// grab war cards from player1 and player2
-						spliceCardsWar();
-
-						// concatenate initial cards and warcards into player2's deck
-						player2 = player2.concat(card2, warCards2, card1, warCards1);
-
-						// display current score in scorebar
-						countCards();
-
-						// display card graphics
-						displayWarCards();
-
-						// style loser's war card
-						$(".war-cards1 div:last-of-type").append("<p class='you-lost-war1'>X</p>");
-
-						// add cards to console
-						logCards();
-					}
+			// war mode
+		} else if (card1[0][0] === card2[0][0]) {
+				// pre-war setup : find length of player cards in case there are less than 4 cards left in player hand
+				if (player1.length <= 4) {
+					playerCardsLength1 = player1.length - 1; // to account for indexing
+				} else {
+					playerCardsLength1 = 3;
 				}
+
+				if (player2.length <= 4) {
+					playerCardsLength2 = player2.length - 1; // to account for indexing
+				} else {
+					playerCardsLength2 = 3;
+				}
+
+				// set yellow war scoreboard
+				$("header").attr("class", "top-banner-war");
+
+				// append war scorebar
+				$(".scorebar-reg").append("<div class='warbar'></div>");
+
 				// call war mode logic function
 				playWar();
-
 			} else {
+
 				// log winner to console
 				console.log("Player 2 Wins");
 
@@ -316,53 +313,54 @@ function playGame() {
 				// add cards to console
 				logCards();
 			}
-		} else {
-			console.log("You won the war!");
-
-			// set player winner name
-			if (player1.length === 0) {
-				$(".winner-bg p").text(Player2Char + " Wins the Game!!!");
-			} else if (player2.length === 0) {
-				$(".winner-bg p").text(Player1Char + " Wins the Game!!!");
-			}
-
-			// fade in winner's background
-			$(".winner-bg").fadeIn(1500);
 		}
-	}
 
 	// trick logistics
 	var callPlayer1 = function() {
-		if (played1 === 0 && played2 === 0) {
+		if (player1.length > 0) {
+			if (played1 === 0 && played2 === 0) {
 
-			// grab player1 card and display it
-			spliceCards("player1");
-			displayCard("player1");
+				// grab player1 card and display it
+				spliceCards("player1");
+				displayCard("player1");
 
-			// set counter
-			played1 = 1;
+				// set counter
+				played1 = 1;
 
-			//reset player2 card image
-			$(".player2-card img").attr("src", "cards/card-back.png");
-			$(".player2-card p").remove();
+				//reset player2 card image
+				$(".player2-card img").attr("src", "cards/card-back.png");
+				$(".player2-card p").remove();
 
-		} else if (played2 === 1) {
+			} else if (played2 === 1) {
 
-			// grab player1 card and display it
-			spliceCards("player1");
-			displayCard("player1");
+				// grab player1 card and display it
+				spliceCards("player1");
+				displayCard("player1");
 
-			// add cards to console
-			countCards();
+				// add cards to console
+				countCards();
 
-			// run game logic
-			playLogic();
+				// run game logic
+				playLogic();
 
-			// reset counters
-			played1 = 0;
-			played2 = 0;
+				// reset counters
+				played1 = 0;
+				played2 = 0;
+			}
+		} else if (player1.length === 0) {
+				console.log("You won the war!");
+
+				// set player winner name
+				if (player1.length === 0) {
+					$(".winner-bg p").text("Player 2 Wins the Game!!!");
+				} else if (player2.length === 0) {
+					$(".winner-bg p").text("Player 1 Wins the Game!!!");
+				}
+
+				// fade in winner's background
+				$(".winner-bg").fadeIn(1500);
+			}
 		}
-	}
 
 	// click "play" for Player 1
 	$("#player1-play").click(function() {
@@ -375,34 +373,48 @@ function playGame() {
 	});
 
 	var callPlayer2 = function() {
-		if (played1 === 0 && played2 === 0) {
+		if (player2.length > 0) {
+			if (played1 === 0 && played2 === 0) {
 
-			// grab player2 card and display it
-			spliceCards("player2");
-			displayCard("player2");
+				// grab player2 card and display it
+				spliceCards("player2");
+				displayCard("player2");
 
-			// set counter
-			played2 = 1;
+				// set counter
+				played2 = 1;
 
-			//reset player1 card image
-			$(".player1-card img").attr("src", "cards/card-back.png");
-			$(".player1-card p").remove();
+				//reset player1 card image
+				$(".player1-card img").attr("src", "cards/card-back.png");
+				$(".player1-card p").remove();
 
-		} else if (played1 === 1) {
+			} else if (played1 === 1) {
 
-			// grab player2 card and display it
-			spliceCards("player2");
-			displayCard("player2");
+				// grab player2 card and display it
+				spliceCards("player2");
+				displayCard("player2");
 
-			// add cards to console
-			countCards();
+				// add cards to console
+				countCards();
 
-			// run game logic
-			playLogic();
+				// run game logic
+				playLogic();
 
-			// reset counters
-			played1 = 0;
-			played2 = 0;
+				// reset counters
+				played1 = 0;
+				played2 = 0;
+			}
+		} else if (player2.length === 0) {
+			console.log("You won the war!");
+
+			// set player winner name
+			if (player1.length === 0) {
+				$(".winner-bg p").text("Player 2 Wins the Game!!!");
+			} else if (player2.length === 0) {
+				$(".winner-bg p").text("Player 1 Wins the Game!!!");
+			}
+
+			// fade in winner's background
+			$(".winner-bg").fadeIn(1500);
 		}
 	}
 
@@ -416,7 +428,7 @@ function playGame() {
 		callPlayer2();
 	});
 
-} // end function playGame()
+}; // end function playGame()
 
 
 $(document).ready(function() {
